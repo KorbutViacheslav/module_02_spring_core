@@ -1,0 +1,146 @@
+[
+  {
+    "userId": 1,
+    "firstName": "Oleg",
+    "lastName": "Olegenko",
+    "address": "Peremogy 25",
+    "birthday": "1995-05-10",
+    "isActive": true
+  },
+  {
+    "userId": 2,
+    "firstName": "Oleg",
+    "lastName": "Olegenko",
+    "address": "Shevchenka 2",
+    "birthday": "1996-06-15",
+    "isActive": true
+  },
+  {
+    "userId": 3,
+    "firstName": "Oleg",
+    "lastName": "Olegenko",
+    "address": "Lvivska 3",
+    "birthday": "1997-07-20",
+    "isActive": true
+  },
+  {
+    "userId": 4,
+    "firstName": "Petro",
+    "lastName": "Petrenko",
+    "address": "Bulvar 5",
+    "birthday": "1990-01-15",
+    "isActive": true
+  },
+  {
+    "userId": 5,
+    "firstName": "Olena",
+    "lastName": "Olenina",
+    "address": "Gagarina 12",
+    "birthday": "1985-02-28",
+    "isActive": true
+  },
+  {
+    "userId": 6,
+    "firstName": "Andriy",
+    "lastName": "Andriyenko",
+    "address": "Pushkina 7",
+    "birthday": "1992-03-22",
+    "isActive": true
+  },
+  {
+    "userId": 7,
+    "firstName": "Viktor",
+    "lastName": "Viktorenko",
+    "address": "Lermontova 8",
+    "birthday": "1994-04-12",
+    "isActive": true
+  },
+  {
+    "userId": 8,
+    "firstName": "Iryna",
+    "lastName": "Irynina",
+    "address": "Krylova 10",
+    "birthday": "1988-05-30",
+    "isActive": true
+  },
+  {
+    "userId": 9,
+    "firstName": "Serhiy",
+    "lastName": "Serhiyenko",
+    "address": "Karla Marksa 15",
+    "birthday": "1991-06-14",
+    "isActive": true
+  },
+  {
+    "userId": 10,
+    "firstName": "Nadia",
+    "lastName": "Nadiyenko",
+    "address": "Shevchenka 18",
+    "birthday": "1993-07-25",
+    "isActive": true
+  },
+  {
+    "userId": 11,
+    "firstName": "Mykola",
+    "lastName": "Mykolenko",
+    "address": "Gorkogo 20",
+    "birthday": "1987-08-03",
+    "isActive": true
+  },
+  {
+    "userId": 12,
+    "firstName": "Svitlana",
+    "lastName": "Svitlanova",
+    "address": "Kalynova 5",
+    "birthday": "1990-09-12",
+    "isActive": true
+  },
+  {
+    "userId": 13,
+    "firstName": "Taras",
+    "lastName": "Tarasenko",
+    "address": "Nezalezhnosti 1",
+    "birthday": "1986-10-20",
+    "isActive": true
+  },
+  {
+    "userId": 14,
+    "firstName": "Kateryna",
+    "lastName": "Katerynina",
+    "address": "Pobedy 3",
+    "birthday": "1989-11-28",
+    "isActive": true
+  },
+  {
+    "userId": 15,
+    "firstName": "Dmytro",
+    "lastName": "Dmytrenko",
+    "address": "Sadova 15",
+    "birthday": "1992-12-10",
+    "isActive": true
+  },
+  {
+    "userId": 16,
+    "firstName": "Vladyslav",
+    "lastName": "Vladyslavov",
+    "address": "Franka 22",
+    "birthday": "1994-01-05",
+    "isActive": true
+  },
+  {
+    "userId": 17,
+    "firstName": "Yana",
+    "lastName": "Yanovna",
+    "address": "Pushkinska 24",
+    "birthday": "1988-02-18",
+    "isActive": true
+  },
+  {
+    "userId": 18,
+    "firstName": "Roman",
+    "lastName": "Romanenko",
+    "address": "Sumska 6",
+    "birthday": "1995-03-21",
+    "isActive": true
+  }
+]
