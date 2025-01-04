@@ -1,44 +1,54 @@
 package ua.gym.dao.impl;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import ua.gym.dao.UserDao;
 import ua.gym.entity.Trainer;
+import ua.gym.loader.FileLoader;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
+@Slf4j
+@Repository
 public class TrainerDaoImpl implements UserDao<Trainer> {
-    private Map<String, Trainer> trainers = new HashMap<>();
+    private final Map<Long, Trainer> trainers = new HashMap<>();
+    private final FileLoader<Trainer> fileLoader;
 
+    @Autowired
+    public TrainerDaoImpl(FileLoader<Trainer> fileLoader) {
+        this.fileLoader = fileLoader;
+        loadTrainers();
+        log.info("Load trainers from file");
 
-    public TrainerDaoImpl(Map<String, Trainer> trainers) {
-        this.trainers = trainers;
     }
 
     private void loadTrainers() {
-
+        trainers.putAll(fileLoader.load());
     }
 
     @Override
-    public void save(Trainer user) {
+    public void save(Trainer trainer) {
+        trainers.put(trainer.getUserId(), trainer);
     }
 
     @Override
     public Optional<Trainer> getById(Long id) {
-        return Optional.empty();
+        return Optional.ofNullable(trainers.get(id));
     }
 
     @Override
     public void updateById(Long id, Trainer user) {
+        trainers.put(id, user);
     }
 
     @Override
     public void removeById(Long id) {
+        trainers.remove(id);
     }
 
     @Override
     public List<Trainer> getAll() {
-        return List.of();
+        return new ArrayList<>(trainers.values());
     }
 }

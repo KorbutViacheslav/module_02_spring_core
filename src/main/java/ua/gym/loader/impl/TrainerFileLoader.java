@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import ua.gym.entity.Trainer;
 import ua.gym.loader.FileLoader;
 
@@ -17,7 +18,8 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-public class TrainerFileLoader implements FileLoader {
+@Component
+public class TrainerFileLoader implements FileLoader<Trainer> {
     private final ObjectMapper mapper;
 
     @Value("${trainers.storage}")
