@@ -3,6 +3,8 @@ package ua.gym;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ua.gym.config.SpringConfig;
 import ua.gym.entity.Trainee;
+import ua.gym.entity.Trainer;
+import ua.gym.entity.TrainingType;
 import ua.gym.service.UserService;
 
 import java.time.LocalDate;
@@ -31,15 +33,24 @@ public class App {
                 LocalDate.of(1995, 11, 30));
 
 
-        UserService<Trainee> userService = context.getBean(UserService.class);
-        System.out.println(userService.getUser(1L));
-        System.out.println(userService.getUser(2L));
-        System.out.println(userService.getUser(3L));
+        UserService<Trainee> traineeService = context.getBean("traineeServiceImpl", UserService.class);
+        System.out.println(traineeService.getById(1L));
+        System.out.println(traineeService.getById(2L));
+        System.out.println(traineeService.getById(3L));
 
-        userService.saveUser(trainee);
-        userService.saveUser(trainee1);
-        userService.saveUser(trainee2);
-        System.out.println(userService.getUser(21L));
+        traineeService.save(trainee);
+        traineeService.save(trainee1);
+        traineeService.save(trainee2);
+        System.out.println(traineeService.getById(21L));
+
+        Trainer trainer = new Trainer(6L, "John", "Snow", true, TrainingType.FITNESS);
+
+        UserService<Trainer> trainerService = context.getBean("trainerServiceImpl", UserService.class);
+        trainerService.save(trainer);
+
+        System.out.println(trainerService.getById(1L));
+        System.out.println(trainerService.getById(6L));
+
 
     }
 }

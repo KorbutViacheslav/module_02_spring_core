@@ -5,6 +5,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
+@ToString(callSuper = true)
 public class Trainer extends User {
     private TrainingType specialization;
 

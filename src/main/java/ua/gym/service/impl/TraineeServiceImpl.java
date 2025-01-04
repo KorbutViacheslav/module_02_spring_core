@@ -10,7 +10,7 @@ import ua.gym.service.UserService;
 import java.util.Optional;
 
 @Slf4j
-@Service
+@Service("traineeServiceImpl")
 public class TraineeServiceImpl implements UserService<Trainee> {
     private final UserDao<Trainee> traineeUserDao;
 
@@ -20,7 +20,7 @@ public class TraineeServiceImpl implements UserService<Trainee> {
     }
 
     @Override
-    public void saveUser(Trainee trainee) {
+    public void save(Trainee trainee) {
         if (trainee == null || trainee.getUserId() == null) {
             log.error("Failed to saved user: user id is null");
             throw new NullPointerException("Failed to saved user: user id is null");
@@ -31,7 +31,7 @@ public class TraineeServiceImpl implements UserService<Trainee> {
     }
 
     @Override
-    public Optional<Trainee> getUser(Long id) {
+    public Optional<Trainee> getById(Long id) {
         Optional<Trainee> trainee = traineeUserDao.getById(id);
         if (trainee.isPresent()) {
             log.info("Get trainee with ID: {}", id);
@@ -42,10 +42,10 @@ public class TraineeServiceImpl implements UserService<Trainee> {
     }
 
     @Override
-    public void updateUser(Long id, Trainee user) {
+    public void updateBuId(Long id, Trainee user) {
         Optional<Trainee> trainee = traineeUserDao.getById(id);
         if (trainee.isPresent()) {
-            traineeUserDao.updateById(id, trainee.get());
+            traineeUserDao.updateById(id, user);
             log.info("Updated trainee with ID: {}", id);
         } else {
             log.warn("Failed to update: No trainee found with ID: {}", id);
@@ -53,7 +53,7 @@ public class TraineeServiceImpl implements UserService<Trainee> {
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public void deleteById(Long id) {
         Optional<Trainee> trainee = traineeUserDao.getById(id);
         if (trainee.isPresent()) {
             traineeUserDao.removeById(id);

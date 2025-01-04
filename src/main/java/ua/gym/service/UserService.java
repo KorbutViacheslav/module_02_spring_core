@@ -6,12 +6,12 @@ import java.util.Optional;
 
 public interface UserService<T extends User> {
 
-    void saveUser(T user);
+    void save(T user);
 
-    Optional<T> getUser(Long id);
+    Optional<T> getById(Long id);
 
-    void updateUser(Long id, T user);
+    void updateBuId(Long id, T user);
 
-    void deleteUser(Long id);
+    void deleteById(Long id);
 
 }
