@@ -2,17 +2,14 @@ package ua.gym;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ua.gym.config.SpringConfig;
-import ua.gym.dao.impl.TraineeDaoImpl;
 import ua.gym.entity.Trainee;
+import ua.gym.service.UserService;
 
 import java.time.LocalDate;
 
 public class App {
     public static void main(String[] args) {
         var context = new AnnotationConfigApplicationContext(SpringConfig.class);
-        TraineeDaoImpl dao = context.getBean(TraineeDaoImpl.class);
-
-        System.out.println(dao.getUser(3L));
 
         Trainee trainee = new Trainee(19L,
                 "FirstName",
@@ -33,11 +30,16 @@ public class App {
                 "Addres2",
                 LocalDate.of(1995, 11, 30));
 
-        dao.saveUser(trainee);
-        dao.saveUser(trainee1);
-        dao.saveUser(trainee2);
 
-        System.out.println(dao.getUser(20L));
-        System.out.println(dao.getUser(21L));
+        UserService<Trainee> userService = context.getBean(UserService.class);
+        System.out.println(userService.getUser(1L));
+        System.out.println(userService.getUser(2L));
+        System.out.println(userService.getUser(3L));
+
+        userService.saveUser(trainee);
+        userService.saveUser(trainee1);
+        userService.saveUser(trainee2);
+        System.out.println(userService.getUser(21L));
+
     }
 }

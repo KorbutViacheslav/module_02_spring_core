@@ -2,9 +2,9 @@ package ua.gym.dao.impl;
 
 import ua.gym.dao.UserDao;
 import ua.gym.entity.Trainer;
-import ua.gym.entity.User;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -14,22 +14,24 @@ public class TrainerDaoImpl implements UserDao<Trainer> {
 
 
     @Override
-    public boolean saveUser(Trainer user) {
-        return false;
+    public void save(Trainer user) {
     }
 
     @Override
-    public Optional<Trainer> getUser(Long id) {
+    public Optional<Trainer> getById(Long id) {
         return Optional.empty();
     }
 
     @Override
-    public boolean updateUser(Long id, User user) {
-        return false;
+    public void updateById(Long id, Trainer user) {
     }
 
     @Override
-    public boolean removeUser(Long id) {
-        return false;
+    public void removeById(Long id) {
+    }
+
+    @Override
+    public List<Trainer> getAll() {
+        return List.of();
     }
 }

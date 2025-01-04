@@ -3,6 +3,7 @@ package ua.gym.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import ua.gym.security.PasswordGenerator;
+import ua.gym.security.UsernameGenerator;
 
 @Data
 @NoArgsConstructor
@@ -23,6 +24,7 @@ public class User {
     public void generatePasswordAndUsername() {
         PasswordGenerator passwordGenerator = new PasswordGenerator();
         this.password = passwordGenerator.generatePassword();
-        this.username = getFirstName() + "." + getLastName();
+        UsernameGenerator usernameGenerator = new UsernameGenerator();
+        this.username = usernameGenerator.generateUsername(firstName, lastName);
     }
 }

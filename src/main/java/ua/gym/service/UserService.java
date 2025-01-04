@@ -10,7 +10,7 @@ public interface UserService<T extends User> {
 
     Optional<T> getUser(Long id);
 
-    void updateUser(T user);
+    void updateUser(Long id, T user);
 
     void deleteUser(Long id);
 

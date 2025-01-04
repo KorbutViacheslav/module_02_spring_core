@@ -2,14 +2,17 @@ package ua.gym.dao;
 
 import ua.gym.entity.User;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserDao<T extends User> {
-    boolean saveUser(T user);
+    void save(T user);
 
-    Optional<T> getUser(Long id);
+    Optional<T> getById(Long id);
 
-    boolean updateUser(Long id, User user);
+    void updateById(Long id, T user);
 
-    boolean removeUser(Long id);
+    void removeById(Long id);
+
+    List<T> getAll();
 }
