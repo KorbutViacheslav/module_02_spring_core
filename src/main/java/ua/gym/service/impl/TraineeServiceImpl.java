@@ -62,10 +62,4 @@ public class TraineeServiceImpl implements UserService<Trainee> {
             log.warn("Failed to remove: No trainee found with ID: {}", id);
         }
     }
-
-    private boolean isUniqUserName(String username) {
-        return traineeUserDao.getAll()
-                .stream()
-                .anyMatch(trainee -> trainee.getUsername().equals(username));
-    }
 }

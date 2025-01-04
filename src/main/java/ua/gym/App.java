@@ -15,19 +15,19 @@ public class App {
                 "FirstName",
                 "LastName",
                 true,
-                "Addres",
+                "Address",
                 LocalDate.of(1991, 8, 30));
         Trainee trainee1 = new Trainee(20L,
                 "FirstName",
                 "LastName",
                 true,
-                "Addres1",
+                "Address1",
                 LocalDate.of(1990, 10, 30));
         Trainee trainee2 = new Trainee(21L,
                 "FirstName",
                 "LastName",
                 true,
-                "Addres2",
+                "Address2",
                 LocalDate.of(1995, 11, 30));
 
 

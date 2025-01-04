@@ -5,8 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-import ua.gym.entity.Trainee;
+import ua.gym.entity.Trainer;
 import ua.gym.loader.FileLoader;
 
 import java.io.IOException;
@@ -18,34 +17,34 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-@Component
-public class TraineeFileLoader implements FileLoader<Trainee> {
+public class TrainerFileLoader implements FileLoader {
     private final ObjectMapper mapper;
 
-    @Value("${trainees.storage}")
+    @Value("${trainers.storage}")
     private String path;
 
-    public TraineeFileLoader() {
+    public TrainerFileLoader() {
         mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
+
     }
 
     @Override
-    public Map<Long, Trainee> load() {
-        Map<Long, Trainee> users = new HashMap<>();
+    public Map<Long, Trainer> load() {
+        Map<Long, Trainer> trainers = new HashMap<>();
         Path filePath = Paths.get(path);
         try (var br = Files.newBufferedReader(filePath)) {
-            List<Trainee> trainees = mapper.readValue(br, new TypeReference<>() {
+            List<Trainer> trainersList = mapper.readValue(br, new TypeReference<>() {
             });
-            trainees.forEach(Trainee::generatePasswordAndUsername);
-            for (Trainee trainee : trainees) {
-                users.put(trainee.getUserId(), trainee);
+            trainersList.forEach(Trainer::generatePasswordAndUsername);
+            for (Trainer t : trainersList) {
+                trainers.put(t.getUserId(), t);
             }
-            log.info("Successfully loaded {} trainees from file: {}", users.size(), path);
+            log.info("Successfully loaded {} trainers from file: {}", trainers.size(), path);
         } catch (IOException e) {
-            log.error("Failed to load trainees from file: {}", path, e);
-            throw new RuntimeException("Failed to load trainees from file: " + path, e);
+            log.error("Failed to load trainers from file: {}", path, e);
+            throw new RuntimeException("Failed to load trainers from file: " + path, e);
         }
-        return users;
+        return trainers;
     }
 }

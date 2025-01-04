@@ -12,6 +12,13 @@ public class TrainerDaoImpl implements UserDao<Trainer> {
     private Map<String, Trainer> trainers = new HashMap<>();
 
 
+    public TrainerDaoImpl(Map<String, Trainer> trainers) {
+        this.trainers = trainers;
+    }
+
+    private void loadTrainers() {
+
+    }
 
     @Override
     public void save(Trainer user) {

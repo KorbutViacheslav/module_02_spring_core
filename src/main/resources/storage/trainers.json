@@ -1,0 +1,37 @@
+[
+  {
+    "userId": 1,
+    "firstName": "Andriy",
+    "lastName": "Koval",
+    "isActive": true,
+    "specialization": "FITNESS"
+  },
+  {
+    "userId": 2,
+    "firstName": "Natalia",
+    "lastName": "Petrenko",
+    "isActive": true,
+    "specialization": "YOGA"
+  },
+  {
+    "userId": 3,
+    "firstName": "Olexander",
+    "lastName": "Bondarenko",
+    "isActive": true,
+    "specialization": "ZUMBA"
+  },
+  {
+    "userId": 4,
+    "firstName": "Iryna",
+    "lastName": "Tkachenko",
+    "isActive": true,
+    "specialization": "STRETCHING"
+  },
+  {
+    "userId": 5,
+    "firstName": "Yuriy",
+    "lastName": "Melnyk",
+    "isActive": true,
+    "specialization": "RESISTANCE"
+  }
+]

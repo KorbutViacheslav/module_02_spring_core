@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface FileLoader<T> {
 
-    Map<Long, T> loadUsers();
+    Map<Long, T> load();
 }

@@ -19,10 +19,11 @@ public class TraineeDaoImpl implements UserDao<Trainee> {
     public TraineeDaoImpl(FileLoader<Trainee> fileLoader) {
         this.fileLoader = fileLoader;
         loadTrainees();
+        log.info("Trainees from file loaded");
     }
 
     private void loadTrainees() {
-        trainees.putAll(fileLoader.loadUsers());
+        trainees.putAll(fileLoader.load());
     }
 
     @Override
@@ -47,8 +48,7 @@ public class TraineeDaoImpl implements UserDao<Trainee> {
 
     @Override
     public List<Trainee> getAll() {
-        List<Trainee> trainees = new ArrayList<>(this.trainees.values());
-        return trainees;
+        return new ArrayList<>(this.trainees.values());
     }
 
 }
