@@ -2,7 +2,7 @@ package ua.gym.dao.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import ua.gym.dao.UserDao;
 import ua.gym.entity.Trainee;
 import ua.gym.entity.User;
@@ -13,10 +13,10 @@ import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
-@Service
+@Repository
 public class TraineeDaoImpl implements UserDao<Trainee> {
     private final Map<Long, Trainee> trainees = new HashMap<>();
-    private FileLoader<Trainee> fileLoader;
+    private final FileLoader<Trainee> fileLoader;
 
     @Autowired
     public TraineeDaoImpl(FileLoader<Trainee> fileLoader) {

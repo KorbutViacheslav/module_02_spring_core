@@ -2,6 +2,7 @@ package ua.gym.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import ua.gym.security.PasswordGenerator;
 
 @Data
 @NoArgsConstructor
@@ -20,7 +21,8 @@ public class User {
     }
 
     public void generatePasswordAndUsername() {
-        this.password = "random";
+        PasswordGenerator passwordGenerator = new PasswordGenerator();
+        this.password = passwordGenerator.generatePassword();
         this.username = getFirstName() + "." + getLastName();
     }
 }
