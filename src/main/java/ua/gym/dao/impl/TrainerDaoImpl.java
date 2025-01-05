@@ -7,6 +7,7 @@ import ua.gym.dao.UserDao;
 import ua.gym.entity.Trainer;
 import ua.gym.loader.FileLoader;
 
+import javax.annotation.PostConstruct;
 import java.util.*;
 
 @Slf4j
@@ -18,13 +19,12 @@ public class TrainerDaoImpl implements UserDao<Trainer> {
     @Autowired
     public TrainerDaoImpl(FileLoader<Trainer> fileLoader) {
         this.fileLoader = fileLoader;
-        loadTrainers();
-        log.info("Load trainers from file");
-
     }
 
+    @PostConstruct
     private void loadTrainers() {
         trainers.putAll(fileLoader.load());
+        log.info("Load trainers from file");
     }
 
     @Override

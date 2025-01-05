@@ -7,6 +7,7 @@ import ua.gym.dao.UserDao;
 import ua.gym.entity.Trainee;
 import ua.gym.loader.FileLoader;
 
+import javax.annotation.PostConstruct;
 import java.util.*;
 
 @Slf4j
@@ -18,12 +19,12 @@ public class TraineeDaoImpl implements UserDao<Trainee> {
     @Autowired
     public TraineeDaoImpl(FileLoader<Trainee> fileLoader) {
         this.fileLoader = fileLoader;
-        loadTrainees();
-        log.info("Trainees from file loaded");
     }
 
+    @PostConstruct
     private void loadTrainees() {
         trainees.putAll(fileLoader.load());
+        log.info("Trainees from file loaded");
     }
 
     @Override

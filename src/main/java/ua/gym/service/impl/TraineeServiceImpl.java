@@ -26,8 +26,8 @@ public class TraineeServiceImpl implements UserService<Trainee> {
             throw new NullPointerException("Failed to saved user: user id is null");
         }
         trainee.generatePasswordAndUsername();
-        log.info("Saved trainee with ID: {}", trainee.getUserId());
         traineeUserDao.save(trainee);
+        log.info("Saved trainee with ID: {}", trainee.getUserId());
     }
 
     @Override

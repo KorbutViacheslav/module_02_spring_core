@@ -7,6 +7,7 @@ import ua.gym.dao.TrainingDao;
 import ua.gym.entity.Training;
 import ua.gym.loader.FileLoader;
 
+import javax.annotation.PostConstruct;
 import java.util.Map;
 
 @Slf4j
@@ -19,9 +20,10 @@ public class TrainingDaoImpl implements TrainingDao {
     @Autowired
     public TrainingDaoImpl(FileLoader<Training> fileLoader) {
         this.fileLoader = fileLoader;
-        loadTrainings();
+
     }
 
+    @PostConstruct
     private void loadTrainings() {
         trainingStorage = fileLoader.load();
         log.info("Loaded trainings from file");
