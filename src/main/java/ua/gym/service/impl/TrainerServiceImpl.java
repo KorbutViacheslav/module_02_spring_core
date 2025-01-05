@@ -26,8 +26,8 @@ public class TrainerServiceImpl implements UserService<Trainer> {
             throw new NullPointerException("Failed to saved trainer: id is null");
         }
         trainer.generatePasswordAndUsername();
-        log.info("Saved trainer with ID: {}", trainer.getUserId());
         trainerUserDao.save(trainer);
+        log.info("Saved trainer with ID: {}", trainer.getUserId());
 
     }
 

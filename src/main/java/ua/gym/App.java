@@ -2,10 +2,10 @@ package ua.gym;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ua.gym.config.SpringConfig;
-import ua.gym.dao.TrainingDao;
 import ua.gym.entity.Trainee;
 import ua.gym.entity.Trainer;
 import ua.gym.entity.TrainingType;
+import ua.gym.service.TrainingService;
 import ua.gym.service.UserService;
 
 import java.time.LocalDate;
@@ -52,9 +52,8 @@ public class App {
         System.out.println(trainerService.getById(1L));
         System.out.println(trainerService.getById(6L));
 
-        TrainingDao trainingDao = context.getBean(TrainingDao.class);
-        System.out.println(trainingDao.select(1L));
-
+        TrainingService trainingService = context.getBean(TrainingService.class);
+        System.out.println(trainingService.getTrainingById(1L));
 
 
     }
