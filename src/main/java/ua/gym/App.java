@@ -5,6 +5,7 @@ import ua.gym.config.SpringConfig;
 import ua.gym.entity.Trainee;
 import ua.gym.entity.Trainer;
 import ua.gym.entity.TrainingType;
+import ua.gym.facade.GymFacade;
 import ua.gym.service.TrainingService;
 import ua.gym.service.UserService;
 
@@ -33,7 +34,7 @@ public class App {
                 "Address2",
                 LocalDate.of(1995, 11, 30));
 
-
+/*
         UserService<Trainee> traineeService = context.getBean("traineeServiceImpl", UserService.class);
         System.out.println(traineeService.getById(1L));
         System.out.println(traineeService.getById(2L));
@@ -42,10 +43,10 @@ public class App {
         traineeService.save(trainee);
         traineeService.save(trainee1);
         traineeService.save(trainee2);
-        System.out.println(traineeService.getById(21L));
+        System.out.println(traineeService.getById(21L));*/
 
         Trainer trainer = new Trainer(6L, "John", "Snow", true, TrainingType.FITNESS);
-
+/*
         UserService<Trainer> trainerService = context.getBean("trainerServiceImpl", UserService.class);
         trainerService.save(trainer);
 
@@ -53,8 +54,18 @@ public class App {
         System.out.println(trainerService.getById(6L));
 
         TrainingService trainingService = context.getBean(TrainingService.class);
-        System.out.println(trainingService.getTrainingById(1L));
+        System.out.println(trainingService.getTrainingById(1L));*/
 
+        GymFacade gymFacade = context.getBean(GymFacade.class);
+        gymFacade.saveTrainee(trainee);
+        gymFacade.saveTrainee(trainee1);
+        gymFacade.saveTrainee(trainee2);
+
+        gymFacade.saveTrainer(trainer);
+
+        System.out.println(gymFacade.getTraineeById(21L));
+        System.out.println(gymFacade.getTrainerById(6L));
+        System.out.println(gymFacade.getTrainingById(1L));
 
     }
 }
