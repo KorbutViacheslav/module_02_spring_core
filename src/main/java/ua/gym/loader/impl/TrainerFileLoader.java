@@ -21,21 +21,19 @@ import java.util.Map;
 @Component
 public class TrainerFileLoader implements FileLoader<Trainer> {
     private final ObjectMapper mapper;
+    private final Path path;
 
-    @Value("${trainers.storage}")
-    private String path;
-
-    public TrainerFileLoader() {
+    public TrainerFileLoader(@Value("${trainers.storage}") String path) {
         mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
+        this.path = Paths.get(path);
 
     }
 
     @Override
     public Map<Long, Trainer> load() {
         Map<Long, Trainer> trainers = new HashMap<>();
-        Path filePath = Paths.get(path);
-        try (var br = Files.newBufferedReader(filePath)) {
+        try (var br = Files.newBufferedReader(path)) {
             List<Trainer> trainersList = mapper.readValue(br, new TypeReference<>() {
             });
             trainersList.forEach(Trainer::generatePasswordAndUsername);

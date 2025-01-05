@@ -2,6 +2,7 @@ package ua.gym;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ua.gym.config.SpringConfig;
+import ua.gym.dao.TrainingDao;
 import ua.gym.entity.Trainee;
 import ua.gym.entity.Trainer;
 import ua.gym.entity.TrainingType;
@@ -50,6 +51,10 @@ public class App {
 
         System.out.println(trainerService.getById(1L));
         System.out.println(trainerService.getById(6L));
+
+        TrainingDao trainingDao = context.getBean(TrainingDao.class);
+        System.out.println(trainingDao.select(1L));
+
 
 
     }

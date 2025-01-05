@@ -1,15 +1,16 @@
 package ua.gym.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
-@ToString
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Training {
+    private Long trainingId;
     private Long trainerId;
     private Long traineeId;
     private String trainingName;
